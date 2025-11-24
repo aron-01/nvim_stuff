@@ -179,14 +179,13 @@ M.parse = function(bufnr)
       end
       local capture_name = query.captures[id]
       --- @type TSNode
-      node = node
+      node = node[1]
       capture_name = M.clean_string(capture_name)
       local text_value = vim.treesitter.get_node_text(node, bufnr)
       text_value = M.clean_string(text_value)
       current_match[capture_name] = text_value
       ::continue::
     end
-    print(current_match)
     -- techinically the query should guarantee these i think
     assert(current_match.url, "No url found")
     assert(current_match.format, "No format found")
@@ -196,7 +195,9 @@ M.parse = function(bufnr)
     new_match:set_font_format(current_match["format"])
     new_match:add_font_weight(current_match["font-weight"])
     new_match:add_character_set(current_match["character_set_in_comment"])
-    all_matches[#all_matches + 1] = new_match
+    if (string.find(new_match.character_set, "latin")) then
+      all_matches[#all_matches + 1] = new_match
+    end
   end
 
   return all_matches
@@ -220,7 +221,7 @@ M.procedure = function(url)
 
   local parsed_info = M.parse(temp_buf)
   local grouped = M.group_by_url(parsed_info)
-
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, {  })
   vim.api.nvim_buf_set_lines(0, -1, -1, false, { "/*" })
 
   for _, match in ipairs(grouped) do
