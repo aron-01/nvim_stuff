@@ -21,7 +21,7 @@ lsp_zero.on_attach(function(_, bufnr)
   end, opts)
 
   vim.keymap.set("n", "gd", function() require("utils").CustomGoToDefinition() end)
-  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover({ focusable = true, border = {"single", "solid"} }) end)
+  vim.keymap.set('n', 'K', function() vim.lsp.buf.hover({ focusable = true, border = { "single", "solid" } }) end)
   vim.keymap.set('n', 'gD', function() vim.lsp.buf.definition() end)
   vim.keymap.set('n', '<leader>gd', function() vim.lsp.buf.declaration() end)
   vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end)
@@ -36,19 +36,21 @@ end)
 
 local configs = require 'lspconfig.configs'
 
-require("lspconfig").clangd.setup({
-  on_attach = function(client, _)
-    client.server_capabilities.offsetEncoding = { "utf-8" }
-  end,
-  cmd = { "clangd", "--offset-encoding=utf-16" }
-})
+local lspconfig = require "lspconfig"
+
+-- vim.lsp.config.clangd.setup({
+--   on_attach = function(client, _)
+--     client.server_capabilities.offsetEncoding = { "utf-8" }
+--   end,
+--   cmd = { "clangd", "--offset-encoding=utf-16" }
+-- })
 
 -- require("lspconfig").rust_analyzer.setup({
 --   on_init = function() print("rustanalyzer init") end
 -- })
 
 
-require("lspconfig").cssls.setup({
+vim.lsp.config("cssls", {
   on_attach = function(client, _)
     client.server_capabilities.documentSymbolProvider = nil
     client.server_capabilities.workspaceSymbolProvider = nil
@@ -64,7 +66,7 @@ require("lspconfig").cssls.setup({
 --   end,
 -- })
 
-require("lspconfig").intelephense.setup({
+vim.lsp.config("intelephense", {
   filetypes = { "php", "inc", "module", "yml", "install", "phtml", "theme" },
   -- on_attach = function() print("loaded intelephense") end,
   settings = {
@@ -160,7 +162,7 @@ end
 --   },
 -- }
 
-require("lspconfig").volar.setup {
+vim.lsp.config("volar", {
   init_options = {
     vue = {
       hybridMode = false,
@@ -171,15 +173,15 @@ require("lspconfig").volar.setup {
       -- tsdk = '/usr/local/lib/node_modules/typescript/lib'
     }
   },
-}
+})
 
 
 lsp_zero.setup()
-require("lspconfig").drupal.setup { autostart = true }
-require("lspconfig").custom_scss.setup { autostart = true }
+vim.lsp.config("drupal",{ autostart = true })
+vim.lsp.config("custom_scss", { autostart = true })
 -- require("lspconfig").drupal_go_lsp.setup { autostart = true }
 -- require("lspconfig").drupal_rust_lsp.setup { autostart = true }
-require("lspconfig").gleam.setup { autostart = true }
+-- vim.lsp.config.gleam.setup { autostart = true }
 
 vim.diagnostic.config({
   virtual_text = true,

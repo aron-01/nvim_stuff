@@ -11,7 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
 require("lazy").setup({
   {
     -- https://github.com/rmagatti/auto-session
@@ -320,7 +319,7 @@ require("lazy").setup({
       })
     end
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", priority = 1200 },
+  { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate", priority = 1200 },
   {
     "lewis6991/gitsigns.nvim", -- TODO make keybinds for this
   },
@@ -465,7 +464,8 @@ require("lazy").setup({
     end,
     dependencies = { 'mfussenegger/nvim-dap' }
   },
-  {"jay-babu/mason-nvim-dap.nvim"},
+  { "nvim-telescope/telescope-dap.nvim" },
+  { "jay-babu/mason-nvim-dap.nvim" },
   { -- clipboard manager
     "AckslD/nvim-neoclip.lua",
     dependencies = {
@@ -509,6 +509,16 @@ require("lazy").setup({
       )
     end,
   },
+  { "backdround/global-note.nvim" },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  }
 })
 
 require("neoclip").setup({ enable_persistent_history = false, default_register = "+" })
