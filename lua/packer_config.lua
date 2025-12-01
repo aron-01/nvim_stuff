@@ -465,6 +465,7 @@ require("lazy").setup({
     end,
     dependencies = { 'mfussenegger/nvim-dap' }
   },
+  {"jay-babu/mason-nvim-dap.nvim"},
   { -- clipboard manager
     "AckslD/nvim-neoclip.lua",
     dependencies = {
