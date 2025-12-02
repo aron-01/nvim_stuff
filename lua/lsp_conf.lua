@@ -67,10 +67,19 @@ vim.lsp.config("cssls", {
 -- })
 
 vim.lsp.config("intelephense", {
-  filetypes = { "php", "inc", "module", "yml", "install", "phtml", "theme" },
-  -- on_attach = function() print("loaded intelephense") end,
+  on_attach = function() print("loaded intelephense") end,
+  root_markers = { ".git" }, -- not composer json !
   settings = {
     intelephense = {
+      filetypes = {
+        "php",
+        "inc",
+        "module",
+        "yml",
+        "install",
+        "phtml",
+        "theme",
+      },
       format = {
         braces = "k&r",
       },
@@ -85,11 +94,11 @@ vim.lsp.config("intelephense", {
           "*.phtml"
         }
       },
-      environment = {
-        includePaths = {
-          "./web/core/includes"
-        }
-      }
+      -- environment = {
+      --   includePaths = {
+      --     "./web/core/includes"
+      --   }
+      -- }
     }
   }
 })
@@ -177,7 +186,7 @@ vim.lsp.config("volar", {
 
 
 lsp_zero.setup()
-vim.lsp.config("drupal",{ autostart = true })
+vim.lsp.config("drupal", { autostart = true })
 vim.lsp.config("custom_scss", { autostart = true })
 -- require("lspconfig").drupal_go_lsp.setup { autostart = true }
 -- require("lspconfig").drupal_rust_lsp.setup { autostart = true }
