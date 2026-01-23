@@ -5,13 +5,13 @@ require("tree")
 require("treesitter_conf")
 require("harpoon_conf")
 require("custom_commands")
-require("lsp_conf")
+require("lsp")
 require("keybinds")
 require("custom_dap")
 require("custom_snippets")
 require("global_note_conf")
 -- require("diff-split-window").setup()
-require("lando-db-interaction").setup()
+-- require("lando-db-interaction").setup()
 require("preload-google-fonts").setup()
 require("show-diff-of-changed-text").setup()
 
@@ -26,7 +26,7 @@ require("formatter").setup {
     php =
         function()
           return {
-            exe = "/home/ron/.config/composer/vendor/squizlabs/php_codesniffer/bin/phpcbf",
+            exe = "/home/aron/.config/composer/vendor/squizlabs/php_codesniffer/bin/phpcbf",
             args = {
               "--standard=Drupal",
               "--extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml",
@@ -48,3 +48,14 @@ vim.cmd([[
     autocmd User FormatterPost checktime
   augroup END
 ]])
+-- vim.api.nvim_create_augroup("DoNotHightLightOnLeave", {
+--   clear = true,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--   group = "DoNotHightLightOnLeave",
+--   callback = function()
+--     vim.cmd([[nohlsearch]])
+--     vim.print("Removing highlights")
+--   end
+-- })

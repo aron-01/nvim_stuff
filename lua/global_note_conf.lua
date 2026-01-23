@@ -34,3 +34,5 @@ vim.keymap.set("n", "<leader>n", function()
 end, {
   desc = "Toggle project note",
 })
+
+vim.keymap.set("n", "<leader>gn", ":GlobalNote<CR>", { desc = "Toggle global note", })

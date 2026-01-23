@@ -44,14 +44,14 @@ dap.configurations.rust = dap.configurations.cpp
 dap.adapters.php = {
   type = 'executable',
   command = 'node',
-  args = { '/home/ron/.config/nvim/vscode-php-debug/out/phpDebug.js' }
+  args = { '/home/aron/.config/nvim/vscode-php-debug/out/phpDebug.js' }
 }
 
 dap.configurations.php = {
   {
     type = 'php',
     request = 'launch',
-    name = 'Listen for Xdebug',
+    name = 'Listen for Xdebug 9003',
     port = "9003",
     log = false,
     pathMappings = {
