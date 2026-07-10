@@ -59,7 +59,7 @@ dap.configurations.php = {
       ["/app"] = "${workspaceFolder}/",  -- drupal
       -- ["/application/"] = "${workspaceFolder}/" -- docker
     },
-    console = 'integratedTerminal'
+    -- console = 'integratedTerminal'
   }
 }
 

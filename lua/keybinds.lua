@@ -15,7 +15,7 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeFocus<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fa", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>fq", ":SortDeclarations<CR>", { silent = true }) -- custom command
 vim.keymap.set("n", "<leader>qf", ":Trouble qflist<CR>", { silent = true })   -- custom command
-vim.keymap.set("n", "<leader>gg", ":Neogit<CR>")
+-- vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>")
 vim.keymap.set("n", "<leader>le", vim.diagnostic.goto_next, { buffer = vim.api.nvim_get_current_buf() })
 vim.keymap.set("n", "<leader>lw", vim.diagnostic.goto_prev, { buffer = vim.api.nvim_get_current_buf() })
 vim.keymap.set("n", "<leader>pV", ":Telescope projects<CR>", { silent = true })

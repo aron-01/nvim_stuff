@@ -1,13 +1,12 @@
 #!/bin/bash
 
 items=""
-items="${items} /home/ron/.config/i3/"
-items="${items} /home/ron/.local/bin/"
-items="${items} /home/ron/egm/egm1/"
-items="${items} /home/ron/programs"
-items="${items} $("ls" -d /home/ron/egm/egm1/*/)"
-items="${items} $("ls" -d /home/ron/programs/*/)"
-items="${items} /home/ron/.config/nvim/"
-items="${items} /home/ron/Downloads/"
+items="${items} /home/aron/.config/i3/"
+items="${items} /home/aron/egm"
+items="${items} /home/aron/programs"
+items="${items} $("ls" -d /home/aron/egm/*/)"
+items="${items} $("ls" -d /home/aron/programs/*/)"
+items="${items} /home/aron/.config/nvim"
+items="${items} /home/aron/Downloads/"
 
 echo "${items}"| tr " " "\n"

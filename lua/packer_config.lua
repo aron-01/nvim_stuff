@@ -247,17 +247,17 @@ require("lazy").setup({
   --   priority = 800,
   --   lazy = false
   -- }, -- Autocomplete engine
-  {
-    "NeogitOrg/neogit",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
-      -- Only one of these is needed, not both.
-      "nvim-telescope/telescope.nvim", -- optional
-    },
-    config = true,
-  },
+  -- {
+  --   "NeogitOrg/neogit",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",         -- required
+  --     "sindrets/diffview.nvim",        -- optional - Diff integration
+  --     -- Only one of these is needed, not both.
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --   },
+  --   config = true,
+  -- },
   {
     'Wansmer/treesj',
     -- keys = { '<space>m', '<space>j', '<space>s' },
@@ -266,6 +266,7 @@ require("lazy").setup({
       require('treesj').setup({ use_default_keymaps = true })
     end
   },
+  "sindrets/diffview.nvim",        -- optional - Diff integration
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
@@ -282,7 +283,7 @@ require("lazy").setup({
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
   { "LuaCATS/love2d",       lazy = true }, -- love2d typings
 
-  "kdheepak/lazygit.nvim",                 -- <leader>gg
+  -- "kdheepak/lazygit.nvim",                 -- <leader>gg
   "mbbill/undotree",                       --<F5>
   {
     "ray-x/lsp_signature.nvim",            -- automatic hover on function
@@ -568,4 +569,4 @@ require("formatter").setup {
     require("formatter.filetypes.any").remove_trailing_whitespace
   }
 }
-require("neogit").setup {}
+-- require("neogit").setup {}

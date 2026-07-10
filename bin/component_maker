@@ -50,7 +50,7 @@ def make_component(component_name: str, path: str, template: str, template_file_
         )
 
     with open(f"{component_path}/{component_name}.twig", "x") as f:
-        _ = f.write(f"{{{{ attach_library('{theme_name}/{component_name}') }}}}\n")
+        # _ = f.write(f"{{{{ attach_library('{theme_name}/{component_name}') }}}}\n")
         with open(template, "r") as template_file:
            _ = f.write(template_file.read())
 

@@ -112,6 +112,16 @@ vim.lsp.config("lua_ls", {
   root_markers = { ".git" },
 });
 
+vim.lsp.config('yamlls', {
+  settings = {
+    yaml = {
+      schemas = {
+        ["web/core/assets/schemas/v1/metadata.schema.json"] = "/**/*/*.component.yml",
+      },
+    },
+  }
+})
+
 vim.lsp.enable("custom_scss")
 vim.lsp.enable("intelephense")
 vim.lsp.enable("lua_ls")
@@ -121,8 +131,9 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("cssls")
 vim.lsp.enable("gopls")
 vim.lsp.enable("html-lsp")
+vim.lsp.enable("html")
 vim.lsp.enable("intelephense")
-vim.lsp.enable("yaml-language-server")
+vim.lsp.enable("yamlls")
 vim.lsp.enable("vtsls")
 
 function MasonLspPackages()
